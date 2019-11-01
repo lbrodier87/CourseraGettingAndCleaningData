@@ -73,5 +73,4 @@ final.aggregated <- aggregate(meanOrStd[,-c(1,2)], by = list(subject.id = meanOr
 write.table(final.aggregated, "FinalDataset.txt", row.names = F)
 
 #check if re-import is ok
-f <- read.table("FinalDataset.txt", header = T)
-levels(f$activity)
+#f <- read.table("FinalDataset.txt", header = T)
