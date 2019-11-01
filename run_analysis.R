@@ -53,7 +53,7 @@ newnames <- sub("Gyro", " gyroscope ", newnames)
 newnames <- sub("^t", "time ", newnames)
 newnames <- sub("^f", "frequency ", newnames)
 newnames <- sub("Mag", "magnitude ", newnames)
-newnames <- sub("Jerkmagnitude", "Jerk magnitude", newnames)
+newnames <- sub("Jerkmagnitude", "jerk magnitude", newnames)
 newnames <- sub("std", "standard deviation", newnames)
 newnames <- gsub("-", " ", newnames)
 newnames <- gsub("  ", " ", newnames)
@@ -73,4 +73,5 @@ final.aggregated <- aggregate(meanOrStd[,-c(1,2)], by = list(subject.id = meanOr
 write.table(final.aggregated, "FinalDataset.txt", row.names = F)
 
 #check if re-import is ok
-#f <- read.table("FinalDataset.txt", header = T)
+f <- read.table("FinalDataset.txt", header = T)
+levels(f$activity)

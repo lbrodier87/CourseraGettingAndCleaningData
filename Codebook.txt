@@ -1,0 +1,38 @@
+The dataset 'FinalDataset.txt' has been modified from the original dataset available at 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'. This codebook is an updated version of the original readme.txt file provided with the original dataset. 
+
+==========
+Background informations (from the original readme file)
+==========
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. 
+
+==========
+Data transformation
+==========
+The script 'run_analysis.R' was run to transform the original dataset into a tidy dataset 'FinalDataset.txt'. The script performs the following steps: 
+
+1. the script creates a single data frame from the data containing subject id (subject_*.txt), activity (y_*.txt) and 561 features (X_*.txt), where * is either 'train' or 'test'. This is done for both the 'train' and 'test' datasets. The two resulting dataframes are then merged to regroup 'train' and 'test' into a single dataframe. 
+2. the script reads the name of the 561 features in 'features.txt' and uses this to add the variable names. 
+3. the script replaces the number corresponding to the different activities with the activity full name found in the 'activity_labels.txt' file. 
+4. The script keeps only the column for mean and standard deviation of the measured parameters. 
+5. The script renames the variables to replace abbreviations with full names in lowercases and separated by a '.'. 
+6. The script aggregates the data to present the mean of each variables for each subject and activity. 
+7. The script saves the resulting dataframe in a text file named 'FinalDataset.txt'. 
+
+The FinalDataset.txt contains 180 observations of 68 variables. 
+
+==========
+Variables description
+==========
+subject.id : the subject identification number ranging from 1 to 30. 
+activity : the type of activity performed. The activities are: "LAYING", "SITTING", "STANDING", "WALKING", "WALKING_DOWNSTAIRS" and "WALKING_UPSTAIRS". 
+
+The other 66 feature names contain the following informations: 
+time / frequency : time indicates time domain signals captured at a constant rate of 50 Hz, and filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Frequency indicates frequency domain signals, produced by applying a Fast Fourier Transform (FFT) to some of these signals. 
+body / gravity: the acceleration signal was separated into body and gravity acceleration signals using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+acceleration / gyroscope : indicate data from the acceleremoter or gyroscope respectively. 
+jerk: the body linear acceleration and angular velocity were derived in time to obtain Jerk signals. 
+magnitude: the magnitude of these three-dimensional signals were calculated using the Euclidean norm. 
+X / Y / Z : used to denote 3-axial signals in the X, Y and Z directions.
+mean / standard.deviation: indicate the mean value and standard deviation respectively. 
