@@ -1,4 +1,4 @@
-The dataset 'FinalDataset.txt' has been modified from the original dataset available at 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'. This codebook is an updated version of the original readme.txt file provided with the original dataset. 
+This codebook is an updated version of the original readme.txt file provided with the original dataset. 
 
 ==========
 Background informations (from the original readme file)
@@ -10,6 +10,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 ==========
 Data transformation
 ==========
+The dataset 'FinalDataset.txt' has been modified from the original dataset available at 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'. 
 The script 'run_analysis.R' was run to transform the original dataset into a tidy dataset 'FinalDataset.txt'. The script performs the following steps: 
 
 1. the script creates a single data frame from the data containing subject id (subject_*.txt), activity (y_*.txt) and 561 features (X_*.txt), where * is either 'train' or 'test'. This is done for both the 'train' and 'test' datasets. The two resulting dataframes are then merged to regroup 'train' and 'test' into a single dataframe. 
